@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+
+<title>소우주컬러맵 프리미엄 리포트 — 양지원님</title>
+
+<style>
+@font-face {
+  font-family: 'Nanum Pen Script';
+  src: url('/fonts/NanumPenScript-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+<style>
+  :root{--pink:#E8567A;--pink-light:#FCE8EE;--pink-deep:#C03060;--blue:#2E6FBC;--blue-light:#E3EEF9;--blue-deep:#0D3D7A;--indigo:#4A3F9E;--indigo-light:#ECEAF9;--indigo-deep:#2A2070;--bg:#1A8A72;--bg-light:#E0F5F0;--bg-deep:#0D5C4A;--red:#D43838;--red-light:#FCEAEA;--red-deep:#8B1A1A;--cream:#FBF7F2;--ink:#1E1A2E;--ink-soft:#3D3856;--muted:#7A7490;--border:#E8E4EF;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--ink);line-height:1.95;font-size:15px;color-scheme:light;}
+  .cover{background:linear-gradient(160deg,#0D1B3E 0%,#1A2050 40%,#2A1848 70%,#3D1040 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 40px;text-align:center;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 30% 40%,rgba(232,86,122,0.18) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 70% 60%,rgba(74,63,158,0.22) 0%,transparent 60%);}
+  .cover-inner{position:relative;z-index:1;max-width:640px;}
+  .brand-tag{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:6px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:32px;}
+  .cover-orb{width:112px;height:112px;border-radius:50%;background:conic-gradient(from 0deg,#E8567A,#4A3F9E,#2E6FBC,#1A8A72,#E8567A);margin:0 auto 28px;opacity:0.82;animation:spin-slow 24s linear infinite;box-shadow:0 0 60px rgba(232,86,122,0.25);}
+  @keyframes spin-slow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .cover-eyebrow{font-family:'Noto Serif KR',serif;font-size:12px;letter-spacing:5px;color:rgba(255,255,255,0.45);margin-bottom:10px;}
+  .cover-name{font-family:'Playfair Display',serif;font-size:52px;color:#fff;font-weight:700;line-height:1.12;margin-bottom:8px;}
+  .cover-name span{color:var(--pink);}
+  .cover-sub{font-family:'Noto Serif KR',serif;font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:0;letter-spacing:2px;}
+  .report{max-width:840px;margin:0 auto;}
+  .part-sep{height:3px;background:linear-gradient(to right,var(--pink),var(--indigo),var(--blue));opacity:0.16;margin:60px 0 0;}
+  .part-header{padding:52px 52px 12px;}
+  .part-num-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .part-num-line{flex:0 0 32px;height:2px;background:var(--pink);border-radius:2px;}
+  .part-num{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:7px;color:var(--muted);text-transform:uppercase;}
+  .part-title{font-family:'Noto Serif KR',serif;font-size:40px;font-weight:700;color:var(--ink);line-height:1.18;border-left:6px solid var(--pink);padding-left:22px;margin-bottom:8px;letter-spacing:-1.5px;}
+  .part-title.blue-title{border-left-color:var(--blue);}
+  .part-title.indigo-title{border-left-color:var(--indigo);}
+  .part-title.red-title{border-left-color:var(--red);}
+  .part-title.green-title{border-left-color:var(--bg);}
+  .part-subtitle{font-size:13px;color:var(--muted);padding-left:28px;margin-bottom:0;letter-spacing:1px;}
+  .content{padding:20px 52px;}.content p{margin-bottom:19px;color:var(--ink-soft);font-size:15px;line-height:1.95;}.content p:last-child{margin-bottom:0;}
+  .section-badge{display:inline-block;font-size:9px;letter-spacing:3px;font-weight:700;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin:0 52px 12px;color:#fff;}
+  .sb-pink{background:var(--pink);}.sb-blue{background:var(--blue);}.sb-indigo{background:var(--indigo);}.sb-bg{background:var(--bg);}.sb-red{background:var(--red);}.sb-amber{background:#C87A20;}
+  .color-section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;padding:0 52px;margin-bottom:4px;}
+  .warn-box{background:#1E1A2E;border-radius:14px;padding:26px 28px;margin:20px 52px;border-left:4px solid var(--red);}
+  .warn-label{font-size:9px;letter-spacing:3px;color:var(--red);font-weight:700;margin-bottom:8px;}
+  .warn-title{font-family:'Noto Serif KR',serif;font-size:16px;color:#fff;margin-bottom:12px;}
+  .warn-box p{color:rgba(255,255,255,0.8);font-size:14.5px;margin-bottom:10px;line-height:1.85;}.warn-box p:last-child{margin-bottom:0;}
+  .rx-box{background:linear-gradient(140deg,#FCE8EE 0%,#ECEAF9 100%);border:1px solid rgba(232,86,122,0.2);border-radius:14px;padding:26px 28px;margin:16px 52px;}
+  .rx-label{font-size:9px;letter-spacing:3px;color:var(--pink);font-weight:700;margin-bottom:8px;}
+  .rx-title{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--pink-deep);margin-bottom:12px;}
+  .rx-box p{color:var(--ink-soft);font-size:14.5px;margin-bottom:10px;line-height:1.85;}.rx-box p:last-child{margin-bottom:0;}
+  .synth-box{background:linear-gradient(140deg,#1E1A2E 0%,#2A1848 100%);border-radius:16px;padding:32px;margin:28px 52px;border:1px solid rgba(232,86,122,0.2);}
+  .synth-badge{font-size:9px;letter-spacing:3px;color:#FFAFC0;font-weight:700;margin-bottom:10px;}
+  .synth-title{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:14px;}
+  .synth-box p{color:rgba(255,255,255,0.82);font-size:14.5px;margin-bottom:13px;line-height:1.85;}.synth-box p:last-child{margin-bottom:0;}
+  .synth-summary{background:rgba(232,86,122,0.15);border-radius:10px;padding:14px 18px;margin-top:16px;font-family:'Noto Serif KR',serif;font-size:14px;color:#FFAFC0;font-style:italic;}
+  .secret-box{background:linear-gradient(140deg,#FCE8EE 0%,#ECEAF9 100%);border:1px solid rgba(232,86,122,0.25);border-radius:16px;padding:32px;margin:28px 52px;position:relative;}
+  .secret-badge{position:absolute;top:-12px;left:24px;background:var(--pink);color:#fff;font-size:9px;letter-spacing:3px;padding:4px 14px;border-radius:999px;font-weight:700;}
+  .secret-title{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--pink-deep);margin:10px 0 14px;}
+  .secret-box p{color:var(--ink-soft);margin-bottom:13px;font-size:14.5px;line-height:1.85;}.secret-box p:last-child{margin-bottom:0;}
+  .q-quote{border-left:4px solid var(--indigo);background:var(--indigo-light);border-radius:0 12px 12px 0;padding:18px 24px;margin:20px 52px;font-style:italic;font-family:'Noto Serif KR',serif;font-size:15px;color:var(--indigo-deep);}
+  .q-quote cite{display:block;margin-top:8px;font-style:normal;font-size:11px;color:var(--indigo);letter-spacing:1px;}
+  .q-quote.pk-q{border-left-color:var(--pink);background:var(--pink-light);color:var(--pink-deep);}.q-quote.pk-q cite{color:var(--pink);}
+  .indigo-box{background:linear-gradient(140deg,#FFFAEE 0%,#FFF5D6 100%);border:1px solid rgba(200,168,32,0.25);border-radius:16px;padding:32px;margin:24px 52px;position:relative;}
+  .indigo-badge{position:absolute;top:-12px;left:24px;background:#C8A820;color:#fff;font-size:9px;letter-spacing:3px;padding:4px 14px;border-radius:999px;font-weight:700;}
+  .indigo-title{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:#7A6000;margin:10px 0 14px;}
+  .indigo-box p{color:var(--ink-soft);margin-bottom:13px;font-size:14.5px;line-height:1.85;}.indigo-box p:last-child{margin-bottom:0;}
+  .tsun-box{background:#1E1A2E;border-radius:16px;padding:32px;margin:24px 52px;}
+  .tsun-label{font-size:9px;letter-spacing:4px;color:var(--pink);font-weight:700;margin-bottom:10px;}
+  .tsun-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff;font-style:italic;margin-bottom:16px;}
+  .tsun-box p{color:rgba(255,255,255,0.8);font-size:14.5px;margin-bottom:13px;line-height:1.85;}.tsun-box p:last-child{margin-bottom:0;}
+  .red-box{background:linear-gradient(140deg,#1E1A2E 0%,#3D1010 100%);border-radius:16px;padding:32px;margin:24px 52px;border-left:4px solid var(--red);}
+  .red-box .rb-label{font-size:9px;letter-spacing:4px;color:var(--red);font-weight:700;margin-bottom:12px;}
+  .red-box .rb-title{font-family:'Playfair Display',serif;font-size:26px;color:#fff;font-style:normal;margin-bottom:6px;letter-spacing:-0.5px;}
+  .red-box p{color:rgba(255,255,255,0.82);font-size:14.5px;margin-bottom:13px;line-height:1.85;}.red-box p:last-child{margin-bottom:0;}
+  .divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin:16px 52px;}
+  .energy-section-head{padding:32px 52px 0;}
+  .energy-section-eyebrow{font-size:9px;letter-spacing:4px;font-weight:700;color:var(--pink);text-transform:uppercase;margin-bottom:8px;}
+  .energy-section-title{font-family:'Noto Serif KR',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+  .energy-section-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.9;margin-bottom:0;}
+  .ohang-box{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;margin:20px 52px;}
+  .ohang-title{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+  .ohang-box p{color:var(--ink-soft);font-size:14.5px;line-height:1.85;margin-bottom:10px;}.ohang-box p:last-child{margin-bottom:0;}
+  .ohang-wit{background:var(--indigo-light);border-radius:10px;padding:14px 18px;margin-top:12px;font-size:14px;color:var(--indigo-deep);font-style:italic;font-family:'Noto Serif KR',serif;line-height:1.75;}
+  .part5-box{background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px;margin:24px 52px;}
+  .part5-title{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:16px;}
+  .part5-box p{color:var(--ink-soft);font-size:14.5px;line-height:1.85;margin-bottom:12px;}.part5-box p:last-child{margin-bottom:0;}
+  .part5-item{background:var(--indigo-light);border-radius:10px;padding:14px 18px;margin:10px 0;border-left:3px solid var(--indigo);}
+  .part5-item-title{font-size:12px;font-weight:700;color:var(--indigo-deep);letter-spacing:1px;margin-bottom:6px;}
+  .part5-item p{color:var(--ink-soft);font-size:13.5px;margin:0;}
+  .tier-cheer{background:linear-gradient(140deg,#1E1A2E 0%,#2A1848 100%);border-radius:12px;padding:22px 26px;margin-top:20px;}
+  .tier-cheer p{color:rgba(255,255,255,0.85);font-size:14px;line-height:1.85;margin:0;}
+  .future-section-wrap{background:linear-gradient(160deg,#1A1200 0%,#2E2200 40%,#1A1A0A 100%);border-top:3px solid rgba(220,200,50,0.4);}
+  .future-section{max-width:840px;margin:0 auto;padding:60px 52px;}
+  .future-eyebrow{font-size:9px;letter-spacing:5px;color:rgba(220,200,50,0.7);font-weight:700;text-transform:uppercase;margin-bottom:16px;}
+  .future-title{font-family:'Noto Serif KR',serif;font-size:32px;font-weight:700;color:#E8D050;margin-bottom:10px;display:flex;align-items:center;}
+  .future-sub{font-size:13px;color:rgba(220,200,50,0.55);margin-bottom:40px;letter-spacing:1px;}
+  .future-section p{color:rgba(255,255,255,0.8);font-size:15px;line-height:1.95;margin-bottom:18px;}
+  .future-vision-box{background:rgba(220,200,50,0.1);border:1px solid rgba(220,200,50,0.3);border-radius:14px;padding:24px 28px;margin:32px 0;}
+  .future-vision-label{font-size:9px;letter-spacing:3px;color:#E8D050;font-weight:700;margin-bottom:10px;}
+  .future-vision-quote{font-family:'Noto Serif KR',serif;font-size:16px;font-style:italic;color:#fff;line-height:1.75;margin-bottom:8px;}
+  .future-vision-mood{font-size:12px;color:rgba(220,200,50,0.7);letter-spacing:1px;}
+  .vision-card-container{margin:32px 0;}
+  .vision-card-placeholder{width:100%;min-height:280px;background:rgba(220,200,50,0.05);border:2px dashed rgba(220,200,50,0.25);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:32px 0;}
+  .vision-card-placeholder p{color:rgba(220,200,50,0.4);font-size:13px;letter-spacing:1px;}
+  .future-closing{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;color:#E8D050;margin-top:36px;text-align:center;letter-spacing:-0.3px;padding:24px;background:rgba(220,200,50,0.08);border-radius:12px;border:1px solid rgba(220,200,50,0.2);}
+  .wrap-up-section{padding:60px 52px 40px;}
+  .wrap-up-section p{color:var(--ink-soft);font-size:15px;line-height:2.0;margin-bottom:20px;}
+  .wrap-up-highlight{background:linear-gradient(140deg,#FCE8EE 0%,#ECEAF9 100%);border-radius:14px;padding:28px 32px;margin:32px 0;border-left:4px solid var(--pink);}
+  .wrap-up-highlight p{color:var(--ink);font-family:'Noto Serif KR',serif;font-size:15px;line-height:2.0;margin-bottom:12px;}.wrap-up-highlight p:last-child{margin-bottom:0;}
+  .closing{padding:52px;text-align:center;background:linear-gradient(160deg,#0D1B3E 0%,#2A1848 100%);}
+  .closing-title{font-family:'Playfair Display',serif;font-size:24px;color:#fff;font-style:italic;margin-bottom:14px;}
+  .closing p{color:rgba(255,255,255,0.55);font-size:14px;max-width:480px;margin:0 auto 7px;}
+  .closing-sig{margin-top:28px;font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.25);text-transform:uppercase;}
+  .master-letter-wrap{padding:40px 52px;background:var(--cream);}
+  .master-letter{background:#FEFAF2;border:1px solid #E8D9B8;border-radius:16px;padding:40px 44px 36px;position:relative;box-shadow:0 4px 24px rgba(160,130,80,0.10),0 1px 4px rgba(160,130,80,0.08);background-image:repeating-linear-gradient(transparent,transparent 35px,rgba(210,185,140,0.18) 35px,rgba(210,185,140,0.18) 36px);background-position:0 calc(40px + 35px);}
+  .master-letter::before{content:'✉';position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#FEFAF2;border:1px solid #E8D9B8;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:36px;text-align:center;}
+  .ml-eyebrow{font-size:9px;letter-spacing:5px;font-weight:700;color:#B8965A;text-align:center;margin-bottom:32px;text-transform:uppercase;}
+  .ml-body{font-family:'Nanum Pen Script','Nanum Brush Script',cursive !important;font-size:21px;line-height:1.85;letter-spacing:0.5px;color:#3D2B1A;margin-bottom:28px;word-break:keep-all;}
+  .ml-body .ml-color{color:#8B5E3C;font-weight:700;}
+  .ml-sig{font-family:'Nanum Brush Script','Nanum Pen Script',cursive;font-size:18px;color:#8B5E3C;text-align:right;margin-top:8px;}
+  .hl-p{color:var(--pink-deep);font-weight:700;}.hl-am{color:#C87A20;font-weight:700;}.hl-ci{color:#B8920A;font-weight:700;}.hl-r{color:var(--red);font-weight:700;}.hl-i{color:var(--indigo);font-weight:700;}
+  /* ★ 핵심질문 — 컬러 타이틀 아래 이탤릭 한 줄 (백서 14-2 데이터베이스 참조) */
+  .color-hook-q{font-family:'Noto Serif KR',serif;font-style:italic;font-size:15px;color:var(--muted);padding:10px 52px 0;letter-spacing:0.3px;line-height:1.8;display:block;}
+  @media(max-width:600px){
+    .part-header,.content,.energy-section-head,.future-section,.wrap-up-section,.master-letter-wrap{padding-left:20px;padding-right:20px;}
+    .secret-box,.q-quote,.tsun-box,.red-box,.divider,.ohang-box,.indigo-box,.warn-box,.rx-box,.section-badge,.color-section-title,.synth-box,.part5-box{margin-left:12px;margin-right:12px;padding-left:16px;padding-right:16px;}
+    .part-title{font-size:26px;}.cover-name{font-size:36px;}
+    div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;gap:10px !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-inner">
+    <p class="brand-tag">소우주컬러맵 · Premium Report · 2026</p>
+    <div class="cover-orb"></div>
+    <p class="cover-eyebrow">소우주컬러맵 프리미엄 리포트</p>
+    <h1 class="cover-name"><span>양지원</span>님의<br>소우주</h1>
+    <p class="cover-sub">1981.06.21 · 신금(辛金) · 음의 금</p>
+  </div>
+</div>
+
+<style>
+.prologue-v2{background:linear-gradient(180deg,#04091A 0%,#080E28 30%,#0E0820 65%,#060612 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:52px 16px 48px;text-align:center;position:relative;overflow:hidden;}
+.prologue-v2::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 50% 45%,rgba(74,63,158,0.18) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 15% 25%,rgba(232,86,122,0.10) 0%,transparent 55%),radial-gradient(ellipse 35% 45% at 85% 75%,rgba(46,111,188,0.10) 0%,transparent 55%),
+/* ★ 본질컬러 빛무리 — 아래 rgba 색상값을 본질컬러에 맞게 교체 (opacity 0.12~0.18)
+   로즈쿼츠→rgba(232,86,122,0.15) / 블루→rgba(46,111,188,0.15) / 인디고→rgba(74,63,158,0.15)
+   앰버→rgba(200,122,32,0.15) / 레드→rgba(212,56,56,0.15) / 골드→rgba(184,134,11,0.15)
+   시트린→rgba(200,168,32,0.15) / 올리브→rgba(100,110,40,0.15) / 틸그린→rgba(26,138,114,0.15)
+   라벤더→rgba(140,100,180,0.15) / 에메랄드민트→rgba(0,180,160,0.15) / 비비드로즈→rgba(220,60,120,0.15) */
+radial-gradient(ellipse 80% 70% at 50% 50%,rgba(232,86,122,0.15) 0%,transparent 65%);}
+.prologue-v2-label{font-family:'Playfair Display',serif;font-size:10px;letter-spacing:6px;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:10px;position:relative;z-index:2;}
+.prologue-v2-title{font-family:'Noto Serif KR',serif;font-size:15px;color:rgba(255,255,255,0.5);letter-spacing:3px;margin-bottom:24px;position:relative;z-index:2;}
+.prologue-v2-list{display:flex;flex-wrap:wrap;justify-content:center;gap:9px 16px;position:relative;z-index:2;max-width:460px;margin:0 auto;}
+.pcl2-item{display:flex;align-items:center;gap:6px;}
+.pcl2-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.pcl2-text{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.3px;}
+.pcl2-name{font-weight:700;color:rgba(255,255,255,0.85);}
+</style>
+<div class="prologue-v2">
+  <p class="prologue-v2-label">SOCOSMOS COLOR MAP · PROLOGUE</p>
+  <p class="prologue-v2-title">양지원님의 소우주를 이루는 다섯 행성</p>
+  <div style="width:100%;max-width:520px;margin:0 auto 0px;position:relative;z-index:2;">
+  <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;overflow:visible;display:block;">
+    <defs>
+      
+      <radialGradient id="gRQ" cx="35%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#FF9BB8"/><stop offset="100%" stop-color="#C03060"/>
+      </radialGradient>
+      <filter id="fPink" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      
+      <radialGradient id="gAM" cx="35%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#6BB8FF"/><stop offset="100%" stop-color="#0D3D7A"/>
+      </radialGradient>
+      <filter id="fAmber" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      
+      <radialGradient id="gCI" cx="35%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#9B8FFF"/><stop offset="100%" stop-color="#2A2070"/>
+      </radialGradient>
+      <filter id="fGold" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      
+      <radialGradient id="gRD" cx="35%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#FF8080"/><stop offset="100%" stop-color="#8B1A1A"/>
+      </radialGradient>
+      <path id="op105" d="M260,155 A105,105 0 1,1 259.999,155Z"/>
+      <path id="op195" d="M260,65  A195,195 0 1,1 259.999,65Z"/>
+      <path id="op248" d="M260,12  A248,248 0 1,1 259.999,12Z"/>
+    </defs>
+    <circle cx="260" cy="260" r="58"  fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <circle cx="260" cy="260" r="105" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
+    <circle cx="260" cy="260" r="152" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <circle cx="260" cy="260" r="195" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
+    <circle cx="260" cy="260" r="248" fill="none" stroke="rgba(255,255,255,0.11)" stroke-width="1.2"/>
+    
+    <g filter="url(#fAmber)">
+      <animateMotion dur="24s" repeatCount="indefinite" rotate="none"><mpath href="#op105" xlink:href="#op105"/></animateMotion>
+      <circle r="19" fill="url(#gAM)"/>
+    </g>
+    <g>
+      <animateMotion dur="24s" repeatCount="indefinite" rotate="none"><mpath href="#op105" xlink:href="#op105"/></animateMotion>
+      
+      <text y="-27" text-anchor="middle" font-size="7.5" font-weight="700" fill="#A8C8F0" font-family="Noto Sans KR,sans-serif">페르소나컬러</text>
+      <text y="30" text-anchor="middle" font-size="10" font-weight="700" fill="#A8C8F0" font-family="Noto Serif KR,serif">블루</text>
+    </g>
+    
+    <g filter="url(#fGold)">
+      <animateMotion dur="38s" repeatCount="indefinite" rotate="none" keyPoints="0.55;1;0;0.55" keyTimes="0;0.45;0.45;1" calcMode="linear"><mpath href="#op195" xlink:href="#op195"/></animateMotion>
+      <circle r="21" fill="url(#gCI)"/>
+    </g>
+    <g>
+      <animateMotion dur="38s" repeatCount="indefinite" rotate="none" keyPoints="0.55;1;0;0.55" keyTimes="0;0.45;0.45;1" calcMode="linear"><mpath href="#op195" xlink:href="#op195"/></animateMotion>
+      
+      <text y="-29" text-anchor="middle" font-size="7.5" font-weight="700" fill="#C0B8F8" font-family="Noto Sans KR,sans-serif">지향컬러</text>
+      <text y="32" text-anchor="middle" font-size="10" font-weight="700" fill="#C0B8F8" font-family="Noto Serif KR,serif">인디고</text>
+    </g>
+    
+    <g>
+      <animateMotion dur="52s" repeatCount="indefinite" rotate="none" keyPoints="0.2;1;0;0.2" keyTimes="0;0.8;0.8;1" calcMode="linear"><mpath href="#op248" xlink:href="#op248"/></animateMotion>
+      <ellipse rx="42" ry="10" fill="none" stroke="rgba(255,220,80,0.35)" stroke-width="5"/>
+      <circle r="36" fill="rgba(255,220,80,0.07)"/>
+      <circle r="28" fill="rgba(255,220,80,0.11)"/>
+    </g>
+    <g filter="url(#fGold)">
+      <animateMotion dur="52s" repeatCount="indefinite" rotate="none" keyPoints="0.2;1;0;0.2" keyTimes="0;0.8;0.8;1" calcMode="linear"><mpath href="#op248" xlink:href="#op248"/></animateMotion>
+      <circle r="24" fill="url(#gCI)"/>
+    </g>
+    <g>
+      <animateMotion dur="52s" repeatCount="indefinite" rotate="none" keyPoints="0.2;1;0;0.2" keyTimes="0;0.8;0.8;1" calcMode="linear"><mpath href="#op248" xlink:href="#op248"/></animateMotion>
+      
+      <text y="-34" text-anchor="middle" font-size="7.5" font-weight="700" fill="#FFED80" font-family="Noto Sans KR,sans-serif">도착 행성</text>
+      <text y="36" text-anchor="middle" font-size="10" font-weight="700" fill="#FFED80" font-family="Noto Serif KR,serif">앰버</text>
+    </g>
+    
+    <g filter="url(#fPink)">
+      <circle cx="260" cy="260" r="36" fill="url(#gRQ)"/>
+    </g>
+    
+    <text x="260" y="254" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="Noto Serif KR,serif">양지원</text>
+    <text x="260" y="270" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.55)" letter-spacing="1" font-family="Noto Sans KR,sans-serif">소우주</text>
+    
+    <text x="260" y="210" text-anchor="middle" font-size="7.5" font-weight="700" fill="#FFAFC0" letter-spacing="0.8" font-family="Noto Sans KR,sans-serif">본질컬러</text>
+    <text x="260" y="224" text-anchor="middle" font-size="10" font-weight="700" fill="#FFAFC0" font-family="Noto Serif KR,serif">로즈쿼츠</text>
+
+    <circle cx="468" cy="68" r="17" fill="url(#gRD)" filter="url(#fAmber)"/>
+    <text x="468" y="50" text-anchor="middle" font-size="7" font-weight="700" fill="#FFA0A0" font-family="Noto Sans KR,sans-serif">수비학컬러</text>
+    <text x="468" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="#FFA0A0" font-family="Noto Serif KR,serif">레드</text>
+  </svg>
+  </div>
+  
+  <p style="font-family:'Noto Serif KR',serif;font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:20px;position:relative;z-index:2;">양지원님의 본질인 '로즈쿼츠'를 중심으로 자전하는 소우주 궤도예요.</p>
+  
+  <div class="prologue-v2-list" style="margin-top:0px;">
+    <div class="pcl2-item"><span class="pcl2-dot" style="background:#E8567A;"></span><span class="pcl2-text">본질 · <span class="pcl2-name">로즈쿼츠</span></span></div>
+    <div class="pcl2-item"><span class="pcl2-dot" style="background:#2E6FBC;"></span><span class="pcl2-text">페르소나 · <span class="pcl2-name">블루</span></span></div>
+    <div class="pcl2-item"><span class="pcl2-dot" style="background:#4A3F9E;"></span><span class="pcl2-text">지향 · <span class="pcl2-name">인디고</span></span></div>
+    <div class="pcl2-item"><span class="pcl2-dot" style="background:#D43838;"></span><span class="pcl2-text">수비학 · <span class="pcl2-name">레드</span></span></div>
+    <div class="pcl2-item"><span class="pcl2-dot" style="background:#C87A20;"></span><span class="pcl2-text">도착 행성 · <span class="pcl2-name">앰버</span></span></div>
+    <div class="pcl2-item"><span class="pcl2-dot" style="background:#D4641A;"></span><span class="pcl2-text">오행 · <span class="pcl2-name">신금(辛金) · 음의 금</span></span></div>
+  </div>
+</div>
+
+<div class="report">
+
+<div class="part-sep"></div>
+<div class="part-header">
+  <div class="part-num-wrap"><span class="part-num-line"></span><span class="part-num">PART 1</span><span class="part-num-line"></span></div>
+  <h2 class="part-title">가면의 균열과 의외성 진단</h2>
+  <p class="part-subtitle">본질컬러 · 페르소나컬러 · 오행 기질 분석</p>
+</div>
+
+<div class="synth-box">
+  <p class="synth-badge">🌌 SOCOSMOS SYNTHESIS · 소우주 전체 구조 융합 진단</p>
+  <h3 class="synth-title">로즈쿼츠 × 블루 × 인디고 × 신금(辛金) · 음의 금 — 양지원님의 소우주 전체 지형도</h3>
+  
+  <p>양지원님의 소우주는 안쪽으로 갈수록 깊고 조용해지는 결을 가지고 있어요. 가장 안에는 사람의 마음과 관계의 온도를 먼저 읽는 본질 로즈쿼츠가 있고, 그걸 세상에 내보일 때는 한 번 더 생각하고 책임지는 블루의 방식으로 표현돼요. 거기에 '왜 이렇게 사는가, 진짜 원하는 건 무엇인가'를 끝까지 묻는 지향 인디고, 그리고 무엇이든 정제하고 완성도를 끌어올리는 신금까지 더해지면 — 겉은 담담한데 속은 누구보다 섬세하고 생각이 많은 사람이 완성돼요.</p>
+  <p>흥미로운 건, 밖에서 보이는 모습과 실제 행동이 꽤 자연스럽게 맞아떨어진다는 점이에요. 곁에 있는 사람의 기분을 먼저 알아채고 조용히 챙기며 약속을 지키는 양지원님의 행동 결은, 안정과 신뢰를 주는 블루 페르소나와 한 몸처럼 움직여요. 다만 한 가지 미세한 어긋남이 있어요. 안에는 떠오르면 바로 표현하고 움직이고 싶은 직관적이고 창의적인 추진력이 분명한데, 그 결이 '맞춰주고 다듬는' 블루의 방식 아래 조용히 눌려 있다는 거예요. 그래서 밖에선 평온해 보여도, 정작 양지원님 자신에게는 그만큼 너그럽지 못한 순간이 생겨요.</p>
+  <div class="synth-summary">💡 한 줄 요약 — "겉으로 보이는 신뢰·안정의 모습은 행동과 정확히 맞아떨어지지만, 그 아래 눌려 있는 '바로 표현하고 싶은 창의의 결'을 풀어줄 때 비로소 온전해지는 사람"</div>
+</div>
+
+<div class="secret-box">
+  <span class="secret-badge">🔐 SOCOSMOS SECRET · 로즈쿼츠 × 블루 의외성 진단</span>
+  <h3 class="secret-title">겉은 담담한데, 속은 누구보다 다정한 사람</h3>
+  
+  <p>양지원님을 처음 보는 사람은 대체로 차분하고 감정기복이 적은 사람이라고 느껴요. 말수가 많지 않고, 표현하기 전에 이미 마음속에서 한 번 정리를 마치니까요. 그런데 그 담담한 표면 아래에는, 생각보다 훨씬 섬세하고 애정이 많은 마음이 흐르고 있어요.</p>
+  <p>누가 외로워 보이면 신경이 쓰이고, 작은 말 한마디 속 감정과 미묘한 온도 차이까지 먼저 알아채는 사람이에요. 따뜻한 사람인데 겉으로는 무심해 보일 수 있고, 차분해 보이는데 속은 의외로 깊은 — 이 반전이 양지원님이라는 사람을 오래 알수록 더 좋아지게 만드는 이유예요.</p>
+  <p>그래서 가까운 사람들은 이렇게 말하곤 해요. '저 사람, 알고 보면 정 많아.' 겉의 담백함은 무심함이 아니라, 마음을 아껴 표현하는 양지원님만의 방식이에요.</p>
+</div>
+
+<div class="ohang-box">
+  <h4 class="ohang-title">💎 오행 기질 · 신금(辛金) · 음의 금</h4>
+  
+  <p>신금(辛金)은 무쇠처럼 거친 금속이 아니라, 한 번 더 제련을 거친 보석이나 정교하게 벼려낸 칼날 같은 에너지예요. 그래서 양지원님 안에는 아무렇게나 두지 못하는 기준, 끝까지 다듬어 완성도를 올리고 싶은 마음, 스스로를 정돈하는 절제가 자연스럽게 흘러요. 다만 그 날카로움이 바깥이 아니라 자기 자신을 향할 때가 있어요. 남에겐 너그러운데 유독 나에게만 엄격해지는 순간이죠. 그 칼을 가끔은 칼집에 넣어두는 연습이, 양지원님에겐 가장 큰 회복이 돼요.</p>
+  <div class="ohang-wit">정교하게 벼려진 칼일수록, 자기를 깎는 데 쓰지 않는 법을 배워야 해요.</div>
+</div>
+
+<div class="part-sep" style="opacity:.07;margin:32px 0 0;"></div>
+
+<div style="padding:32px 52px 0;">
+  <span class="section-badge sb-pink" style="margin:0 0 10px;">INWARD · 본질컬러</span>
+  <div class="color-section-title" style="padding:0;color:var(--pink-deep);">🌸 로즈쿼츠 — 갓 피어난 벚꽃잎처럼 포근하고 다정한 연분홍색</div>
+</div>
+
+<span class="color-hook-q">"따뜻하게 소통과 연결을 주고받고 싶은데, 조심스럽나요?"</span>
+<div class="content">
+  
+  <p>양지원님 내면의 중심에서 변함없이 빛나고 있는 정신적 중심축이자, 가장 나다운 에너지를 담은 '본질컬러'는 갓 피어난 벚꽃잎처럼 포근하고 다정한 연분홍색을 닮은 '로즈쿼츠'이에요.</p>
+  <p>양지원님은 어떤 일을 마주할 때, 그 일의 성과나 결과보다 '그 안의 사람과 관계가 어떤가'를 먼저 느끼는 사람이에요. 누가 무슨 말을 했는지보다 그 말에 담긴 감정과 미묘한 분위기, 혹시 누가 상처받지는 않았는지를 먼저 알아채죠. 갈등이 생기면 마음이 오래 쓰이고, 편안한 관계는 어떻게든 오래 지켜내고 싶어해요.</p>
+  <p>색채심리학자 파버 비렌(Faber Birren)은 이런 연분홍빛이 사람의 마음을 부드럽게 감싸 안고 서로를 연결하려는 다정한 욕구와 깊이 맞닿아 있다고 봤어요. 양지원님의 본질이 바로 그 빛이에요. 세상을 관계와 정서, 배려의 렌즈로 먼저 바라보는 게 양지원님에게는 가장 자연스러운 호흡이죠.</p>
+  <p>그런데 이 따뜻함이 늘 바로 표현되지는 않아요. 블루의 신중함과 신금의 절제가 함께 있어서, 로즈쿼츠 특유의 다정함이 한 박자 가다듬어진 뒤에야 밖으로 나오거든요. 그래서 속은 따뜻한데 겉은 담백해 보이는 거예요. 이건 감정이 부족해서가 아니라, 마음을 함부로 흘리지 않으려는 양지원님만의 정성이에요.</p>
+  <p>사람의 온도를 먼저 읽는 그 감각은 양지원님이 세상을 살아오며 가장 많이 써온 힘이자, 주변 사람들이 양지원님 곁에서 이상하게 마음이 놓이는 이유이기도 해요.</p>
+</div>
+<div class="warn-box">
+  <p class="warn-label">⚠️ 조심해, 너 이러다 병난다</p>
+  <h4 class="warn-title">로즈쿼츠가 무너질 때 — 다 맞춰주다 정작 나를 놓칠 때</h4>
+  
+  <p>곁의 감정을 먼저 챙기는 사람일수록, 자기 감정은 늘 뒷순위로 미뤄두기 쉬워요. 괜찮다고 말하는 사이 정작 내 마음이 어떤 상태인지 들여다볼 틈을 놓치고, 어느 날 이유 없이 가라앉거나 사소한 일에 크게 흔들리곤 하죠. 하지만 걱정 마세요. 이건 고쳐야 할 결함이 아니에요. 오히려 사람의 마음을 그만큼 깊이 읽어낼 줄 아는 드문 감수성의 증거예요. 다만 그 따뜻한 시선을 가끔은 양지원님 자신에게도 똑같이 돌려주면, 그 감수성은 무너지지 않고 오래 빛나요.</p>
+</div>
+<div class="part-sep" style="opacity:.07;margin:32px 0 0;"></div>
+
+<div style="padding:32px 52px 0;">
+  <span class="section-badge sb-blue" style="margin:0 0 10px;">OUTWARD · 페르소나컬러</span>
+  <div class="color-section-title" style="padding:0;color:var(--blue-deep);">💙 블루 — 한 점의 흐림도 없이 깊고 청명한 가을 하늘의 파란색</div>
+</div>
+
+<span class="color-hook-q" style="color:var(--blue);">"믿을 수 있다는 말을 듣는데, 정작 내가 기댈 곳은 있나요?"</span>
+<div class="content">
+  
+  <p>세상과 소통하기 위해 양지원님의 무의식이 선택한 가장 매력적인 소통의 창구이자, 외부로 발현되는 에너지인 '페르소나컬러'는 한 점의 흐림도 없이 깊고 청명한 가을 하늘의 파란색을 닮은 '블루'이에요.</p>
+  <p>모임이나 단톡방에서 양지원님은 가장 시끄럽게 분위기를 띄우는 사람은 아니에요. 대신 누군가 조용히 힘들어 보이면 먼저 알아채 살그머니 다가가고, '다 괜찮아' 하며 웬만한 건 맞춰주죠. 약속은 흘려보내지 않고 지키고, 꼭 필요한 순간엔 핵심을 짚는 한마디를 건네요. 그래서 사람들은 양지원님을 두고 '옆에 있으면 이상하게 안정돼', '말은 많지 않은데 믿음이 가'라고 기억해요.</p>
+  <p>색채심리학자 막스 뤼셔(Max Lüscher)는 이 깊고 청명한 파란색을 신뢰와 안정, 마음의 질서를 향한 욕구와 연결했어요. 양지원님이 세상에 자신을 내보이는 방식이 바로 그 빛이에요. 감정을 앞세우기보다 한 번 생각하고, 책임질 수 있는 만큼만 말하고, 곁에 있는 사람에게 안전한 자리를 내어주는 방식이죠.</p>
+  <p>다만 양지원님 안에는 떠오른 생각을 바로 표현하고 움직이고 싶은 창의적이고 직관적인 추진력도 분명히 있어요. 그 결이 신뢰와 안정을 우선하는 블루의 방식과 만나면, 표현하고 싶은 마음을 한 번 정돈한 뒤에야 꺼내게 돼요. 본인 안에서는 이미 답이 서 있는데도, 밖으로는 차분하게 조율하는 모습으로 비치는 거죠.</p>
+  <p>그래서 양지원님의 블루는 그냥 차분한 게 아니라, 깊은 마음과 빠른 직관을 한 번 더 정제해서 내보내는 '정성 들인 신뢰'예요. 사람들이 양지원님에게 마음을 놓는 건 결코 우연이 아니에요.</p>
+</div>
+<div class="warn-box">
+  <p class="warn-label">⚠️ 조심해, 너 이러다 병난다</p>
+  <h4 class="warn-title">블루가 무너질 때 — 다 받아주는데 정작 기댈 곳이 없을 때</h4>
+  <p>혼자 감당하는 게 익숙한 사람은, 도움을 청하는 일이 가장 어려워요. 감정을 표현하기도 전에 이미 머릿속에서 정리를 끝내버리니, 주변은 '저 사람은 늘 괜찮구나' 하고 믿지만 정작 양지원님은 속으로 지쳐 있을 때가 있죠. 하지만 이건 결함이 아니에요. 오히려 그만큼 책임감 있고 단단하게 자기 몫을 해내는 사람이라는 증거예요. 다만 가끔은 '나도 좀 힘들어'라는 한마디를 먼저 꺼내 보면, 그 신뢰의 무게가 한결 가벼워져요.</p>
+</div>
+
+<div class="rx-box">
+  <p class="rx-label">💊 뼈 때리는 처방 멘트 — 로즈쿼츠 × 블루 통합</p>
+  <h4 class="rx-title">"당신은 모두를 안아줄 수 있어요. 단, 그 품 안에 당신 자리부터 비워두세요."</h4>
+  
+  <p>양지원님은 곁의 사람을 읽고 챙기고 끝까지 책임지는, 흔치 않게 단단하고 다정한 사람이에요. 그 힘이 오래가려면 단 하나, 양지원님 자신을 챙기는 순서를 자꾸 미루지 않는 게 중요해요.</p>
+  <p>오늘 누군가의 기분을 살핀 만큼 오늘 내 기분은 어땠는지도 한 번 물어봐 주면 좋아요. 다 맞춰주느라 흐려진 내 마음의 윤곽을 또렷하게 지켜주는 것 — 그게 양지원님의 따뜻함을 가장 오래 지키는 길이에요.</p>
+</div>
+
+<div class="part-sep"></div>
+<div class="part-header">
+  <div class="part-num-wrap"><span class="part-num-line" style="background:var(--indigo)"></span><span class="part-num">PART 2</span><span class="part-num-line" style="background:var(--indigo)"></span></div>
+  <h2 class="part-title indigo-title">성숙기의 흐름과 지향</h2>
+  <p class="part-subtitle">지향컬러 — 인생 중반전의 핵심 갈망 분석</p>
+</div>
+
+<div style="padding:28px 52px 0;">
+  <span class="section-badge sb-indigo" style="margin:0 0 10px;">ASPIRATIONAL · 지향컬러 · 인생 중반전의 핵심 갈망</span>
+  <div class="color-section-title" style="padding:0;color:#7A6000;">🌌 인디고 — 고요한 한밤중 우주의 깊이를 담은 신비로운 남색</div>
+</div>
+
+<span class="color-hook-q" style="color:var(--indigo);">"내가 진짜 나아가야 할 삶의 방향과 비전을 찾고 싶나요?"</span>
+<div class="content">
+  
+  <p style="font-size:15.5px;color:var(--ink-soft);font-style:italic;line-height:1.9;margin-bottom:6px;">더 깊이 있게 살고 싶은데, 그 깊이가 어디로 향해야 할지 가끔 막막해지는 그 감각.</p>
+  
+  <p>이번 생에서 양지원님이 진심으로 원하는 갈망과 방향성을 담은 '지향컬러'는 고요한 한밤중 우주의 깊이를 담은 신비로운 남색을 닮은 '인디고'이에요.</p>
+  <p>지향컬러는 본질처럼 처음부터 익숙한 색이 아니라, 인생의 중반을 지나며 점점 또렷해지는 갈망이에요. 양지원님에게 그 갈망은 '의미'로 나타나요. 단순한 성공이나 인정만으로는 채워지지 않고, '나는 왜 이렇게 사는가, 내가 진짜 원하는 건 무엇인가, 어떤 사람이 되고 싶은가'라는 질문이 마음속에서 멈추지 않죠.</p>
+  <p>막스 뤼셔(Max Lüscher)는 이 깊은 남색을 표면의 소란을 넘어 본질을 꿰뚫어 보려는 통찰의 욕구와 연결했어요. 양지원님이 끌리는 방향이 바로 그곳이에요. 답을 빨리 내는 것보다 끝까지 깊게 들여다보는 쪽, 가벼운 정답보다 진짜 울림이 있는 쪽으로요.</p>
+  <p>그래서 양지원님의 표현 욕구도 그냥 가볍고 즉흥적인 표현으로는 성에 차지 않아요. 떠오르면 바로 움직이는 직관은 있지만, 그 표현이 의미 있고 진정성 있게 가닿기를 원하죠. 지금 무언가에 깊이 몰입해 그것을 완성도 있게 다듬고 싶은 마음도, 바로 이 인디고의 갈망에서 나와요.</p>
+  <p>이 깊이를 향한 끌림은 망설임이 아니라 방향이에요. 양지원님은 결국, 깊고 의미 있는 삶 쪽으로 스스로를 데려가는 사람이에요.</p>
+</div>
+<div class="indigo-box">
+  <span class="indigo-badge">🌟 인디고 지향 · 성숙기 활성화 진단</span>
+  <h3 class="indigo-title">깊이를 향한 갈망이 가장 또렷해지는 시기</h3>
+  
+  <p>지금 양지원님은 인생의 한 챕터를 넘어, '이제는 진짜 내 것을 만들고 싶다'는 마음이 차오르는 시기를 지나고 있어요. 몰입할 무언가가 생겼을 때 가장 살아있는 것도 이 때문이에요.</p>
+  <p>이 시기에 중요한 건, 깊이 파고드는 힘을 스스로 의심하지 않는 거예요. 남들보다 한 번 더 묻고 한 번 더 들여다보는 그 성향이, 결국 양지원님만의 단단한 결과물을 만들어내는 가장 큰 자산이 돼요.</p>
+</div>
+
+<div class="part-sep"></div>
+<div class="part-header">
+  <div class="part-num-wrap"><span class="part-num-line" style="background:var(--blue)"></span><span class="part-num">PART 3</span><span class="part-num-line" style="background:var(--blue)"></span></div>
+  <h2 class="part-title blue-title">주관식 앵커링과 반전 카운셀링</h2>
+  <p class="part-subtitle">양지원님이 직접 적어주신 답변 심층 분석</p>
+</div>
+
+<div class="content">
+  
+  <p>양지원님은 지금 무언가를 크게 흔드는 변화보다, '현재의 상태를 잘 유지하면서 마음을 단단히 다잡는 것'을 변화의 방향으로 선택하셨어요. 그 이유로, 지금 만들고 계신 것을 끝까지 완성도 있게 다듬어 세상에 내보이고 싶다고 적어주셨죠.</p>
+  <p>이건 욕심이 아니라 몰입의 언어예요. 흩어지지 않고 한 곳에 마음을 모아 끝을 보고 싶은 사람의 마음이요. 그래서 지금 양지원님에게 필요한 건 새로운 자극이 아니라, 지금의 집중을 흔들리지 않게 지켜주는 안정감이에요. 그 마음을 품고, 양지원님이 직접 적어주신 답변들을 하나씩 들여다볼게요.</p>
+</div>
+
+<div class="q-quote">"예민한편입니다. 건강염려증도 있고 스트레스에 몸도, 마음도 영향을 많이 받아요."<cite>— 양지원님이 적어주신 Q8 · 평소 나에 대한 고민</cite></div>
+<div class="content">
+  
+  <p>리포트를 쓰면서, 이 문장 앞에서 오래 머물렀어요. 예민하다는 말, 그리고 몸과 마음이 스트레스에 함께 흔들린다는 말 안에는 양지원님이 평소 얼마나 많은 것을 먼저 느끼며 살아가는지가 그대로 담겨 있었거든요.</p>
+  <p>사람의 감정과 분위기를 먼저 읽는 로즈쿼츠의 섬세함은, 동시에 세상의 자극을 남보다 더 크고 빠르게 받아들인다는 뜻이기도 해요. 거기에 무엇이든 정교하게 살피는 신금의 기질이 더해지면, 작은 신호 하나도 그냥 지나치지 못하고 몸과 마음으로 먼저 감지하게 되죠. 건강을 염려하는 마음도 결국, 나를 지키려는 그 예민한 감각이 가장 소중한 것을 향해 켜진 거예요.</p>
+  <p>남들 눈에는 그저 '걱정이 많은 사람'으로 보일 수 있어요. 하지만 실제 속은, 누구보다 자기 몸과 마음의 신호에 정직하게 반응하는 사람인 거예요. 둔감해서 못 느끼는 게 아니라, 너무 잘 느껴서 미리 대비하려는 거죠.</p>
+  <p>그러니 그 예민함을 없애야 할 약점으로 여기지 않으셔도 돼요. 다만 그 감각이 나를 지키는 쪽이 아니라 나를 닦달하는 쪽으로 켜질 때, 잠깐 알아채고 결을 돌려주는 연습만 있으면 돼요.</p>
+</div>
+
+<div class="tsun-box">
+  <p class="tsun-label">COUNSELING · 품격 있는 반전 처방</p>
+  <h3 class="tsun-title">"예민한 게 아니라, 정밀한 거예요."</h3>
+  
+  <p>양지원님의 그 섬세한 감각은 고장 난 경보기가 아니라, 정밀하게 잘 맞춰진 센서예요. 문제는 센서의 성능이 아니라, 그 센서를 24시간 켜둔 채 끄는 법을 배우지 못했다는 데 있어요.</p>
+  <p>몸이 보내는 신호를 의심하기보다, 신호가 켜지면 '응, 알았어' 하고 잠시 멈춰 쉬어주면 돼요. 예민함을 줄이려 애쓰는 대신 그 감각이 쉴 시간을 정해주는 것 — 그게 양지원님처럼 정밀한 사람에게 가장 잘 맞는 방식이에요.</p>
+</div>
+
+<div class="q-quote pk-q">"별로 힘든것 없음. 남편과 싸운 상태라 맘이 조금 불편하긴 하지만 요즘 나는 집중하고 있는게 있어서인지  열정이 많아서 좀 설레어있는 상태임"<cite>— 양지원님이 적어주신 Q9 · 가장 힘든 상황</cite></div>
+<div class="content">
+  
+  <p>이 답변에는 지금 양지원님이 어떤 에너지 위에 서 있는지가 선명하게 드러나요. 마음 한구석에 불편함이 있지만, 그보다 훨씬 크게 자리를 차지하고 있는 건 '집중하고 있는 무언가'와 거기서 나오는 열정과 설렘이에요.</p>
+  <p>이건 양지원님의 인디고와 직관이 가장 건강하게 작동하고 있다는 신호예요. 깊이 몰입할 대상을 만났을 때, 양지원님은 작은 소란들에 휘둘리지 않고 그쪽으로 에너지를 모을 수 있는 사람이거든요. 설렘이 있다는 건, 지금 가는 방향이 양지원님의 본질과 맞닿아 있다는 증거이기도 해요.</p>
+  <p>남들 눈에는 '별일 없는 사람'처럼 보일 수 있지만, 실제 속은 조용히 뜨거운 상태인 거예요. 다만 한 가지만 기억하면 좋겠어요. 몰입이 깊어질수록 가까운 사람과의 작은 불편함은 뒤로 미뤄두기 쉬워져요. 열정도 챙기고 곁의 관계도 가끔 돌아봐 주면, 그 설렘이 더 오래가요.</p>
+</div>
+
+<div class="part-sep"></div>
+<div class="part-header">
+  <div class="part-num-wrap"><span class="part-num-line" style="background:var(--red)"></span><span class="part-num">PART 4</span><span class="part-num-line" style="background:var(--red)"></span></div>
+  <h2 class="part-title red-title">소우주 주인장이 매칭한 2026년 수비학 활용 컬러 처방</h2>
+  <p class="part-subtitle">수비학 라이프 타이밍 &amp; 올해의 행운 컬러</p>
+</div>
+
+<div class="content">
+  <p style="font-family:'Noto Serif KR',serif;font-style:italic;color:var(--indigo);font-size:15px;">수비학은 양지원님이 태어난 날짜에 새겨진 숫자의 리듬을 통해, 올해 어떤 흐름의 바람이 부는지를 읽어내는 오래된 지혜예요. 과학적인 인과라기보다, 시간의 결을 읽고 그 흐름에 나를 맞춰 타는 삶의 나침반에 가까워요.</p>
+  <p style="font-size:12px;color:var(--indigo);text-align:center;letter-spacing:0.5px;margin:12px 0 20px;opacity:0.8;">✦ 아래 처방은 양지원님의 생년월일과 수비학적 궤적이 맞물려 나온, 오직 양지원님만을 위한 처방이에요 ✦</p>
+  <p style="font-size:14.5px;color:var(--ink-soft);">아래에 나오는 올해의 행운 컬러는, 올해 양지원님이 가까이 두면 에너지가 강화되고 운의 흐름을 타는 데 도움이 되는 컬러예요. 옷이나 소품, 공간 인테리어에 의식적으로 활용해 보세요.</p>
+</div>
+
+<div class="red-box">
+  <p class="rb-label" style="font-size:13px;letter-spacing:2px;margin-bottom:6px;">🔢 수비학 · 올해의 타이밍 &amp; 가까이하면 좋은 컬러</p>
+  <h2 class="rb-title">레드</h2>
+  <p style="font-size:12px;color:rgba(255,160,160,0.75);margin-bottom:18px;">양지원님의 생년월일을 수비학적으로 계산한 결과, 올해는 수비학 1번 운의 흐름이에요.</p>
+
+  <p>올해 양지원님에게 흐르는 수비학 1번은 '새로운 시작과 주도권'의 해예요. 누군가를 따라가거나 상황에 맞추기보다, 내가 먼저 깃발을 꽂고 출발선을 긋는 데 에너지가 모이는 흐름이죠. 지금 몰입해 만들고 계신 것을 세상에 내보이기에 더없이 잘 맞는 타이밍이에요.</p>
+  <p>그래서 올해 가까이 두면 좋은 컬러가 바로 강렬하고 뜨거운 불꽃의 빨간색을 닮은 '레드'예요. 깊이 생각하느라 출발이 늦어질 때, 레드의 에너지는 '일단 한 걸음 먼저 내딛자'는 추진력으로 양지원님의 등을 가볍게 밀어줘요. 1번의 흐름과 레드는 같은 방향을 보고 있어요.</p>
+
+  <div style="background:rgba(212,56,56,0.2);border-radius:10px;padding:18px 20px;margin:16px 0;border:1px solid rgba(212,56,56,0.35);">
+    <p style="font-size:12px;font-weight:700;color:#FFA0A0;letter-spacing:1px;margin-bottom:8px;">🌟 쌍라이트 (DOUBLE LIGHT) 특별 경보</p>
+    <p>양지원님의 경우, 양지원님 에너지의 균형을 맞춰주는 '보완컬러'도 레드인데, 올해 우주의 타이밍을 보여주는 '수비학 컬러' 역시 레드로 정확히 일치합니다. 이것은 우주가 올해 양지원님에게 '더 이상 망설이지 말고 레드의 전차에 올라타라'고 쌍라이트를 켜고 등을 떠밀고 있는 형국입니다. 올해는 이 에너지를 그 어느 때보다 의도적이고 강력하게 써주셔야 하는 운명적인 해입니다.</p>
+  </div>
+
+  <p style="font-weight:700;color:#FFA0A0;margin-bottom:16px;">★ 레드 에너지를 200% 내 것으로 만드는 일상 속 ACTION</p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px;">
+    <div style="background:rgba(212,56,56,0.13);border:1px solid rgba(212,56,56,0.3);border-radius:14px;padding:20px 16px;">
+      <div style="font-size:22px;margin-bottom:8px;">🔴</div>
+      <div style="font-size:12px;font-weight:700;color:#FFA0A0;letter-spacing:1px;margin-bottom:8px;">신체 처방</div>
+      <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;">에너지를 몸에 직접 장착하기</div>
+      <p style="font-size:12.5px;color:rgba(255,255,255,0.75);line-height:1.8;margin:0;">심장이 살짝 빨라지는 가벼운 운동이나 빠른 산책을 짧게라도 매일. 생각이 많아질 땐 몸을 먼저 움직이면 머리가 가벼워져요.</p>
+    </div>
+    <div style="background:rgba(212,56,56,0.13);border:1px solid rgba(212,56,56,0.3);border-radius:14px;padding:20px 16px;">
+      <div style="font-size:22px;margin-bottom:8px;">🏠</div>
+      <div style="font-size:12px;font-weight:700;color:#FFA0A0;letter-spacing:1px;margin-bottom:8px;">공간 처방</div>
+      <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;">시각적 추진력 구축하기</div>
+      <p style="font-size:12.5px;color:rgba(255,255,255,0.75);line-height:1.8;margin:0;">책상이나 가방에 레드 포인트 소품 하나를 두세요. 시선이 닿을 때마다 '미루지 말고 지금'이라는 작은 스위치가 켜져요.</p>
+    </div>
+    <div style="background:rgba(212,56,56,0.13);border:1px solid rgba(212,56,56,0.3);border-radius:14px;padding:20px 16px;">
+      <div style="font-size:22px;margin-bottom:8px;">⚡</div>
+      <div style="font-size:12px;font-weight:700;color:#FFA0A0;letter-spacing:1px;margin-bottom:8px;">행동 처방</div>
+      <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;">인지와 행동의 루프 깨기</div>
+      <p style="font-size:12.5px;color:rgba(255,255,255,0.75);line-height:1.8;margin:0;">고민이 길어지면 가장 작은 한 걸음부터 먼저 실행하세요. 완벽한 준비보다 시작한 흔적이 추진력을 만들어요.</p>
+    </div>
+  </div>
+  <p style="font-size:11px;color:rgba(255,160,160,0.45);text-align:right;margin-top:4px;">* 모바일에서는 세로로 표시돼요</p>
+</div>
+
+<div class="divider"></div>
+<div class="energy-section-head">
+  <p class="energy-section-eyebrow">✨ SOCOSMOS COLOR ITEM PRESCRIPTION</p>
+  <h3 class="energy-section-title">당신의 컬러 아이템 처방</h3>
+  <p class="energy-section-desc">PART 4의 수비학 처방이 올해 타이밍 처방이었다면, 지금부터는 양지원님의 고유한 컬러 기질에 맞게 일상에 들여놓으면 좋을 아이템 처방이에요. 요즘 유독 부족하다고 느끼는 에너지가 있다면 그 컬러를 가까이 두어 보세요.</p>
+</div>
+<div style="height:20px;"></div>
+<div style="display:flex;flex-direction:column;gap:14px;padding:0 52px 32px;">
+
+  <div style="background:linear-gradient(135deg,rgba(255,182,193,0.12),rgba(200,122,32,0.10));border:1px solid rgba(232,116,138,0.3);border-radius:16px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;">
+    <div style="min-width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FFB6C1,#C87A20);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🌸</div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:rgba(232,116,138,0.9);letter-spacing:1.5px;margin-bottom:4px;">본질 + 페르소나 통합 처방</div>
+      <div style="font-size:14px;font-weight:700;color:#8B3A50;margin-bottom:8px;">로즈쿼츠 × 블루 — 조건 없는 휴식과 정돈된 평온을 함께</div>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.8;margin:0;">부드러운 실크 잠옷을 입고 온전한 휴식을 취하거나 달콤한 핑크빛 마카롱을 맛보며 오직 나만을 위한 위로의 시간을 보내고, 거기에 잔잔한 클래식 음악으로 마음을 정돈해 보세요. 나만을 위한 감각적인 닻(Anchor)이 필요하다면, 로즈쿼츠 원석이나 원석팔찌를 일상 공간이나 손목에 두는 것도 좋아요. 상처받았던 마음이 부드럽게 치유되고, 소란했던 감정이 차분히 가라앉으며 나를 사랑하는 따스한 평온이 채워질 거예요.</p>
+    </div>
+  </div>
+
+  <div style="background:rgba(212,56,56,0.10);border:1px solid rgba(212,56,56,0.3);border-radius:16px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;">
+    <div style="min-width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FF6B6B,#8B0000);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🔴</div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#8B1A1A;letter-spacing:1px;margin-bottom:6px;">보완컬러 처방</div>
+      <div style="background:rgba(212,56,56,0.08);border-radius:8px;padding:8px 12px;margin-bottom:10px;">
+        <p style="font-size:12px;color:#8B1A1A;font-weight:700;margin:0 0 4px;">🧩 양지원님의 보완컬러가 왜 레드일까요?</p>
+        <p style="font-size:12px;color:#4A1010;line-height:1.7;margin:0;">양지원님의 소우주는 깊고 신중하고 정제된 에너지로 가득해요. 그래서 가끔은 생각을 건너뛰고 바로 행동하는 즉각적인 추진력과 생동감이 부족해지기 쉬워요. 레드는 바로 그 빈자리를 채워, 망설임을 줄이고 삶에 뜨거운 활력을 불어넣어 주는 컬러예요.</p>
+      </div>
+      <div style="font-size:14px;font-weight:700;color:#6B1010;margin-bottom:8px;">레드 — 정체된 에너지에 불을 붙이는 추진력</div>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.8;margin:0;">심장을 뛰게 만드는 역동적인 비트의 음악을 크게 틀어두거나, 몸의 감각을 깨우는 활동으로 정체된 에너지를 강렬하게 발산시켜 보세요. 나만을 위한 감각적인 닻(Anchor)이 필요하다면, 레드 재스퍼 원석이나 원석팔찌를 일상 공간이나 손목에 두는 것도 좋아요.</p>
+      
+      <div style="margin-top:14px;padding:14px 16px;background:rgba(212,56,56,0.07);border-left:3px solid rgba(212,56,56,0.5);border-radius:0 10px 10px 0;">
+        <p style="font-size:12px;font-weight:700;color:#8B1A1A;letter-spacing:1px;margin-bottom:8px;">🪐 레드 빛을 가진 사람과의 관계</p>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.9;margin:0;">양지원님의 우주 궤도 밖에서 빛나고 있는 행성이 있어요. 레드 궤도를 도는 사람입니다. 레드처럼 망설임 없이 바로 움직이고 자기 욕구를 시원하게 드러내는 사람을 만나면 처음엔 나와 너무 달라서 부담스럽거나 삐걱거린다고 느낄 수 있어요. 하지만 어느 때는 나도 모르게 끌리는 묘한 인력(Gravity)을 느끼실 거예요. 내가 평생 조심조심하는 에너지를 그 사람은 아무렇지도 않게 툭툭 써버리기 때문이죠. 완전히 편하지 않은 그 에너지는 내 우주 지도에서 가장 멀리 있는 에너지이자, 역설적이게도 멈춰있던 양지원님의 '바로 시작하는 추진력'을 깨우고 성장시켜 내 궤도를 확 끌어당겨 줄 사람이에요.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="part-sep"></div>
+<div class="part-header">
+  <div class="part-num-wrap"><span class="part-num-line" style="background:var(--bg)"></span><span class="part-num">PART 5</span><span class="part-num-line" style="background:var(--bg)"></span></div>
+  <h2 class="part-title green-title">🌱 나다운 방식으로 성장하는 법</h2>
+  <p class="part-subtitle">Q3×Q5 교차 처방 · 기질 맞춤 성장 방식 · 세상 안에서의 포지션</p>
+</div>
+
+<div class="part5-box">
+  <h3 class="part5-title">🌱 양지원님, 나다운 방식으로 성장하는 법</h3>
+  <div class="part5-item">
+    <div class="part5-item-title">① 나다운 성장 방식 — Q3×Q5 교차 처방</div>
+    <p>양지원님은 직감이 오면 먼저 움직이는 사람이라, 시작 자체는 늦지 않아요. 그러니 양지원님에게 필요한 추진력은 '더 세게 밀어붙이기'가 아니라, 시작한 걸 끝까지 데려가는 힘이에요. 큰 완성을 한 번에 노리기보다 작은 완성을 자주 만들어 눈에 보이게 쌓아두세요. '오늘 여기까지 끝냈다'는 흔적이 하나씩 늘어날 때, 양지원님의 몰입은 흔들리지 않고 끝까지 가요.</p>
+  </div>
+  <div class="part5-item">
+    <div class="part5-item-title">② 세상 안에서의 포지션</div>
+    <p>양지원님의 에너지는 넓게 퍼뜨릴 때보다 의미 있는 하나에 깊게 모을 때 가장 크게 돌아와요. 시간과 돈도 여러 곳에 흩뿌리기보다 지금 몰입한 것에 집중적으로 들일 때 흐름이 가장 좋아요. 조직이나 관계 안에서 양지원님은 가장 시끄러운 사람이 아니라 묵묵히 중심을 잡고 끝까지 책임지는 '조용한 핵심'이에요. 깊이 파고들어 완성도를 끌어올리는 자리에 설 때 양지원님의 빛이 가장 또렷해져요.</p>
+  </div>
+  <div class="tier-cheer">
+    <p>성실하게, 깊이 있게 여기까지 걸어오신 양지원님이에요. 지금 가슴을 설레게 하는 그 몰입을 믿고 작은 완성을 하나씩 쌓아가다 보면, 어느새 원하던 그림에 가까워져 있을 거예요. 양지원님은 충분히 그럴 사람이에요.</p>
+  </div>
+</div>
+
+<div class="part-sep"></div>
+
+<div class="future-section-wrap">
+<div class="future-section">
+  <p class="future-eyebrow">ARRIVAL PLANET · 도착 행성컬러</p>
+  <h2 class="future-title">
+    <span style="display:inline-block;width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFED80,#C8A820);vertical-align:middle;margin-right:12px;box-shadow:0 0 20px rgba(220,200,50,0.4);"></span>
+    앰버 — 양지원님이 끌어당기는 미래
+  </h2>
+  <p class="future-sub">잘 익은 오렌지빛을 머금은 늦가을 석양의 따스한 호박색</p>
+
+  <p style="font-size:15.5px;color:rgba(220,200,50,0.85);font-style:italic;line-height:1.9;margin-bottom:10px;">자, 이제 양지원님의 도착 행성이에요.</p>
+  
+  <p>설문 마지막에 양지원님이 직감적으로 끌려 선택하셨던 컬러행성 카드, 기억하시나요? 지금 양지원님의 무의식이 간절히 원하고 이끌려 하는 미래의 마중물 에너지인 '도착 행성컬러'로, 바로 그때 고르셨던 카드가 잘 익은 오렌지빛을 머금은 늦가을 석양의 따스한 호박색을 닮은 '앰버'이에요. 12개의 컬러행성 중에서 양지원님의 손이 그 카드를 향한 건 결코 우연이 아니에요.</p>
+  <p>지금까지의 양지원님은 깊고, 신중하고, 책임감 있게 살아온 사람이에요. 관계를 챙기고, 한 번 더 생각하고, 끝까지 완성도를 끌어올리며 정말 성실하게 자기 자리를 지켜왔죠. 그런데 무의식이 미래의 마중물로 고른 색이 앰버라는 건, 마음 깊은 곳에서 이런 목소리가 올라오고 있다는 뜻이에요. '이제는 조금 덜 무겁게, 더 즐겁게 살아도 되지 않을까.'</p>
+  <p>여기서 앰버는 책임을 내려놓는 무책임한 즐거움이 아니에요. 오히려 그동안 너무 잘 살아온 양지원님이 스스로에게 건네는 허락에 가까워요. 좋아하는 걸 마음 편히 해도 된다는 허락, 살아있음을 오감으로 느껴도 된다는 허락, 그냥 좋아서 웃는 하루를 가져도 된다는 허락이요.</p>
+  <p>양지원님 안에는 원래 자유롭고 호기심 많은 결이 있었어요. 다만 블루와 신금과 인디고가 그 결을 오래 정리하고 다듬어 왔을 뿐이죠. 미래의 앰버는 그 눌려 있던 가벼움과 생동감이 다시 깨어나는 방향이에요. '잘 살아야 한다'에서 '재밌게 살아도 된다'로 천천히 이동하는, 양지원님의 가장 따뜻한 여정이에요.</p>
+
+  <div class="future-vision-box">
+    <p class="future-vision-label">🌿 양지원님이 그리신 미래의 풍경 · Q11</p>
+    <p class="future-vision-quote">"가족들과 여유롭게 세계 여행중이예요. 남편도 나도 안정되어있고 내 개인적으로는 나 혼자버는 한달고정수입이 천만원이 넘어가서 마음이 참 풍요롭고 여유롭네요. 몸도 건강하고 아주 최고입니다"</p>
+    <p class="future-vision-mood">📍 🌊 바다·휴양지</p>
+  </div>
+
+  <style>
+    .vision-toggle{display:none;}
+    .vision-toggle-label{display:block;cursor:pointer;text-align:center;padding:14px 28px;background:rgba(220,200,50,0.12);border:1px solid rgba(220,200,50,0.3);border-radius:12px;color:#E8D050;font-size:14px;letter-spacing:1px;margin:24px 0;transition:all 0.3s;}
+    .vision-toggle-label:hover{background:rgba(220,200,50,0.2);}
+    .vision-card-reveal{max-height:0;overflow:hidden;transition:max-height 0.6s ease,opacity 0.6s ease;opacity:0;}
+    .vision-toggle:checked ~ .vision-card-reveal{max-height:1200px;opacity:1;}
+    .vision-toggle:checked ~ .vision-toggle-label{display:none;}
+  </style>
+  <input type="checkbox" id="visionCard" class="vision-toggle">
+  <label for="visionCard" class="vision-toggle-label">🌟 양지원님의 미래비전카드 열어보기</label>
+  <div class="vision-card-reveal">
+    <div class="vision-card-container">
+      <div class="vision-card-placeholder">
+        <p>[ 미래비전카드 이미지 삽입 자리 ]</p>
+      </div>
+      <p style="text-align:center;font-size:11px;color:rgba(220,200,50,0.35);line-height:1.9;margin-top:14px;letter-spacing:0.3px;padding:0 12px;">
+        이 미래비전카드는 양지원님이 그리신 미래의 풍경을 바탕으로<br>
+        소우주 주인장이 정성스레 이미지화한 카드예요.<br>
+        이 카드를 폰에 저장해두시고 눈에 보이는 형태 너머,<br>
+        이 카드가 전하는 따뜻한 확언의 에너지를 그대로 흡수해 보세요.
+      </p>
+      <p style="text-align:center;font-size:12px;color:#b89b7a;margin-top:12px;letter-spacing:0.5px;font-family:'Noto Sans KR',sans-serif;">
+        📱 화면 캡처 후 저장하세요
+      </p>
+    </div>
+  </div>
+
+  <div class="future-closing">그 미래, 이미 양지원님 거예요. 🌿</div>
+</div>
+</div>
+
+<div class="report">
+<div class="part-sep"></div>
+<div class="part-header">
+  <div class="part-num-wrap"><span class="part-num-line" style="background:var(--muted)"></span><span class="part-num">PART 6</span><span class="part-num-line" style="background:var(--muted)"></span></div>
+  <h2 class="part-title" style="border-left-color:var(--muted);">리포트를 다 쓰고 나서</h2>
+  <p class="part-subtitle">소우주 주인장이 양지원님에게 드리는 마지막 한 마디</p>
+</div>
+
+<div class="wrap-up-section">
+  <div style="background:linear-gradient(140deg,#1E1A2E,#2A1040);border-radius:20px;padding:36px 32px;margin:0 0 28px;border:1px solid rgba(232,86,122,0.15);">
+    <p style="font-family:'Noto Serif KR',serif;font-size:17px;color:rgba(255,255,255,0.88);line-height:2.1;margin-bottom:20px;">
+      리포트를 다 쓰고 나서 양지원님이라는 사람을 한 문장으로 표현한다면 뭐라고 할까, 잠깐 생각해봤어요.
+    </p>
+    
+    <p style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:#FFAFC0;line-height:2;margin-bottom:20px;padding-left:16px;border-left:3px solid rgba(232,86,122,0.5);">
+      사람의 온도를 가장 먼저 읽는 로즈쿼츠의 마음으로, 블루의 신중함과 신금의 완성도로 자기 길을 단단히 다지면서도, 결국엔 앰버의 가벼운 웃음 쪽으로 향하는 사람.
+    </p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.75);line-height:2;margin-bottom:0;">
+      깊이도 책임도 이미 충분한 양지원님이에요. 그러니 이제는 그 깊이 위에 즐거움 한 스푼을 더하는 일만 남았어요. 그 한 스푼이 더해질 때, 양지원님의 소우주는 지금보다 훨씬 더 환하게 빛날 거예요.
+    </p>
+  </div>
+  <p style="font-size:15px;color:var(--ink-soft);line-height:2;">이 리포트를 읽으면서 '아, 맞아. 나 원래 이런 사람이었지'라는 순간이 한 번이라도 있었다면, 소우주컬러맵은 충분히 제 역할을 다 한 거예요. 이제 지도는 양지원님 손 안에 있어요.</p>
+</div>
+</div>
+
+<div class="closing">
+  <h2 class="closing-title">"당신의 소우주는 이미 완벽하게 빛나고 있어요."</h2>
+  
+  <p>사람의 마음을 먼저 읽는 로즈쿼츠의 다정함으로 세상을 보듬고,</p>
+  <p>깊고 청명한 블루의 신뢰로 사람들에게 안정을 건네며,</p>
+  <p>한밤 우주를 닮은 인디고의 통찰로 삶의 의미를 끝까지 들여다보는,</p>
+  <p style="margin-top:6px;font-size:12px;color:rgba(255,255,255,0.28);letter-spacing:1.5px;">그 도착 행성을 향해 이미 항해 중인 양지원님의 소우주예요.</p>
+  <p style="margin-top:14px;font-weight:500;color:rgba(255,255,255,0.82);">양지원님이 찬란한 고유의 빛을 품고 이 세상에 존재하는 이유예요.</p>
+  <p class="closing-sig">소우주컬러맵 · SOCOSMOS COLOR MAP · 2026</p>
+  <p style="margin-top:18px;font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">✨ 소우주 궤도 AS 안내<br><br>
+소우주 리포트를 읽으며 조금 더 깊이 이해하고 싶은 내용이 있다면 편하게 남겨주세요.<br>
+한 번의 답변 안에 온전한 방향성을 담아드릴 수 있도록,<br>
+가장 짚고 넘어가고 싶은 <strong style="color:rgba(255,255,255,0.55);">핵심 질문</strong>을 집중해서 적어주시는 것이 좋습니다.<br><br>
+· 이용 기간: 리포트 수령 후 7일 이내 가능 (최대 1회 답변)<br>
+· 여러 질문을 복합적으로 묶어서 남겨주실 경우, 가장 상단에 적어주신 핵심 질문 1개를 기준으로 답변이 진행됩니다.🌿</p>
+</div>
+
+<style>
+@font-face {
+  font-family: 'Nanum Pen Script';
+  src: url('/fonts/NanumPenScript-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.secret-letter-box {
+  background: #fdf8f0;
+  background-image: repeating-linear-gradient(transparent, transparent 34px, #e8d5bc 34px, #e8d5bc 35px);
+  border: 1.5px solid #d4b896;
+  border-radius: 16px;
+  padding: 40px 36px 36px;
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+}
+.secret-letter-box::before {
+  content: '✉';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fdf8f0;
+  border: 1.5px solid #d4b896;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 16px;
+}
+.sl-text {
+  font-family: 'Nanum Pen Script', 'Nanum Brush Script', cursive;
+  font-size: 20px;
+  line-height: 35px;
+  color: #4a3728;
+  word-break: keep-all;
+  white-space: pre-wrap;
+}
+.sl-em {
+  font-family: 'Nanum Pen Script', 'Nanum Brush Script', cursive;
+  font-size: 26px;
+  color: #8B5E3C;
+  font-style: italic;
+  display: block;
+  text-align: center;
+  margin: 8px 0;
+  line-height: 35px;
+}
+.sl-sig {
+  font-family: 'Nanum Pen Script', 'Nanum Brush Script', cursive;
+  font-size: 20px;
+  color: #8B5E3C;
+  text-align: right;
+  margin-top: 16px;
+  line-height: 35px;
+}
+</style>
+<div class="master-letter-wrap">
+  <div class="master-letter" style="background:transparent;border:none;box-shadow:none;background-image:none;padding:0 20px;">
+    <p class="ml-eyebrow">✉ SECRET LETTER · 소우주 주인장의 비밀 편지</p>
+    <div class="secret-letter-box">
+      
+      <div class="sl-text">양지원님께,
+
+깊이와 책임으로 성실하게 걸어오신 양지원님의 무의식이, 미래의 색으로 고른 건 따뜻한 호박빛 앰버였어요.
+이제는 조금 덜 생각하고, 더 자주 웃으며 살아도 된다고 — 마음이 먼저 그렇게 말하고 있었던 거예요.
+
+그동안 누구보다 단단하게 자기 몫을 해온 사람이니까요.
+
+그런데 양지원님, 도착 행성 카드 속의 그 단어,
+기억하시나요?</div>
+      <span class="sl-em">'당연하게.'</span>
+      <div class="sl-text">그래요, 양지원님이 즐겁게 사는 일은 특별한 사건이 아니라 그냥 당연한 일이에요.
+
+그러니 꼭 기억해 주세요.
+양지원님이 행복해져도 이상한 일이 아니고,
+누군가에게 넘치도록 사랑받아도 이상한 일이 아니며,
+양지원님이 원하는 삶을 살아가는 것 또한
+당연하게, 전혀 이상한 일이 아니에요.
+
+타인의 시선이나 스스로 만든 불안감에 자신을 가두지 말고,
+당신이 당신 자신일 수 있도록 온전히 허락해 주세요.
+
+그러니 가끔은 무거운 마음을 잠시 내려놓고, 그냥 좋아서 웃는 하루를 스스로에게 선물하면 좋아요.
+그거면 충분해요.</div>
+      <div class="sl-sig">from. 소우주 주인장 J 🌿</div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#0a0a14;padding:40px 16px 56px;">
+  <div style="max-width:380px;margin:0 auto;background:linear-gradient(180deg,#10101e 0%,#161629 100%);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:34px 26px 30px;position:relative;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.5);">
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 55% at 50% 30%,rgba(232,86,122,0.13) 0%,transparent 70%);"></div>
+    <div style="position:relative;z-index:2;text-align:center;">
+      <p style="font-family:'Playfair Display',serif;font-size:9px;letter-spacing:5px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:22px;">SOCOSMOS COLOR MAP</p>
+      <div style="width:88px;height:88px;border-radius:50%;margin:0 auto 18px;background:conic-gradient(from 0deg,#E8567A,#2E6FBC,#4A3F9E,#D43838,#E8567A);opacity:0.9;box-shadow:0 0 44px rgba(232,86,122,0.3);"></div>
+      <p style="font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Rose Quartz · Blue · Indigo</p>
+      <p style="font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:#fff;margin-bottom:4px;">양지원님의 소우주</p>
+      <div style="width:42px;height:1px;background:rgba(255,255,255,0.2);margin:14px auto 16px;"></div>
+      <p style="font-size:11.5px;line-height:1.85;color:rgba(255,255,255,0.82);margin-bottom:16px;padding:0 6px;">겉은 담담하지만 속은 누구보다 다정한, 조용한 신뢰형. 깊이 있게 걸어온 마음이 이제 '재밌게 살아도 돼'라는 빛으로 천천히 향하고 있어요.</p>
+      <div style="background:rgba(232,86,122,0.1);border:1px solid rgba(232,86,122,0.25);border-radius:12px;padding:13px 16px;margin:0 auto 18px;">
+        <p style="font-size:9px;letter-spacing:2px;color:#FFAFC0;font-weight:700;margin-bottom:6px;">SOCOSMOS PRESCRIPTION</p>
+        <p style="font-size:10.5px;line-height:1.8;color:rgba(255,255,255,0.85);margin:0;">가끔은 덜 생각하고 더 웃기 — 좋아서 웃는 하루를 스스로에게 선물하면 좋아요.</p>
+      </div>
+      <p style="font-family:'Playfair Display',serif;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,0.3);text-transform:uppercase;">SOCOSMOS COLOR MAP · 2026</p>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.45);margin-top:16px;letter-spacing:0.5px;">📱 화면 캡처 후 저장하세요</p>
+</div>
+
+</body>
+</html>

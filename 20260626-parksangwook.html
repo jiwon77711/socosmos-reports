@@ -256,7 +256,7 @@
   .closing-sig{margin-top:28px;font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.25);text-transform:uppercase;}
   .master-letter-wrap{padding:40px 52px;background:var(--cream);}
   .master-letter{background:#FEFAF2;border:1px solid #E8D9B8;border-radius:16px;padding:40px 44px 36px;position:relative;box-shadow:0 4px 24px rgba(160,130,80,0.10),0 1px 4px rgba(160,130,80,0.08);background-image:repeating-linear-gradient(transparent,transparent 35px,rgba(210,185,140,0.18) 35px,rgba(210,185,140,0.18) 36px);background-position:0 calc(40px + 35px);}
-  .master-letter::before{content:'✉';position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:#FEFAF2;border:1px solid #E8D9B8;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:36px;text-align:center;}
+  .master-letter::before{content:none;} /* 봉투 배지 제거 — eyebrow 텍스트(소우주) 겹침 방지. secret-letter-box 배지로 충분 */
   .ml-eyebrow{font-size:9px;letter-spacing:5px;font-weight:700;color:#B8965A;text-align:center;margin-bottom:32px;text-transform:uppercase;}
   .ml-body{font-family:'Nanum Pen Script','Nanum Brush Script',cursive !important;font-size:21px;line-height:1.85;letter-spacing:0.5px;color:#3D2B1A;margin-bottom:28px;word-break:keep-all;}
   .ml-body .ml-color{color:#8B5E3C;font-weight:700;}
@@ -907,7 +907,7 @@
        🚨 클로징[방향]과 역할 분리: 여긴 '일·포지션' 무대 한정(이직·직장 명시). 클로징은 인생 전반 선택 잣대 → 무대가 달라야 메아리 안 됨.
        어미 ~좋을 것 같아요·~맞을 것 같아요(단정·명령형 금지) / 본질·페르소나·지향 키워드 재인용 최소화(여긴 '일터 발현'만) / 4~5문장.
     -->
-    <p>박상욱님은 흩어진 걸 빠르게 판단해 끝맺고, 사람들이 기대는 흐름을 책임지고 마무리하는 '일을 매듭짓는 자리'에서 가장 빛나는 결이에요. 굳이 예를 들면 현장을 조율하고 결정을 책임지는 운영·관리 역할이 박상욱님 페르소나에 잘 붙어요. 물론 이건 정답이 아니라 방향의 예시예요. 직함이 무엇이든 '내가 판단해 끝까지 끌고 가는 몫'이 살아 있는 자리라면 박상욱님은 어디서든 제 역할을 해내실 거예요. 더 멀리 보면, 그 안에서 내 속도와 방식이 인정받는 환경일수록 박상욱님은 더 오래 갈 수 있고요. 그래서 자리를 옮길지 고민될 땐 연봉이나 직함보다 '이 일이 내 리듬을 지키게 해주나'를 먼저 보면 좋아요. 굳이 옮기지 않더라도, 늘릴 역할과 내려놓을 역할을 그 기준으로 한번 가려보는 것만으로도 방향이 잡혀요.</p>
+    <p>박상욱님은 흩어진 걸 빠르게 판단해 끝맺고, 사람들이 기대는 흐름을 책임지고 마무리하는 '일을 매듭짓는 자리'에서 가장 빛나는 결이에요. 굳이 예를 들면 현장을 조율하고 결정을 책임지는 운영·관리 역할이 박상욱님 페르소나에 잘 붙어요. 물론 이건 정답이 아니라 방향의 예시예요. 직함이 무엇이든 '내가 판단해 끝까지 끌고 가는 몫'이 살아 있는 자리라면 박상욱님은 어디서든 제 역할을 해내실 거예요. 더 멀리 보면, 그 안에서 내 속도와 방식이 인정받는 환경일수록 박상욱님은 더 오래 갈 수 있고요. 그리고 혹시 언젠가 '자리를 한번 옮겨볼까' 싶은 순간이 온다면 — 지금 당장의 이야기가 아니라, 미래의 어느 날을 위해 기준 하나만 미리 챙겨두면 좋아요. 연봉이나 직함보다 '이 일이 내 방식대로 일하게 해주나, 내 페이스를 존중해주나'를 먼저 보는 거예요. 꼭 옮기지 않더라도, 지금 자리에서 나를 너무 갈아넣는 일은 조금 줄이고 내 방식이 통하는 일은 늘려가는 것만으로도 한결 숨통이 트일 거예요.</p>
   </div>
   <div class="tier-cheer">
     <p>박상욱님이 가진 추진력은 어디 가지 않아요. 다만 그 힘을 '더 많이'가 아니라 '더 나답게' 쪽으로 한 칸만 틀면, 일도 삶도 훨씬 가벼워질 거예요. 박상욱님의 속도로 가도 늦지 않아요.</p>
@@ -1017,7 +1017,7 @@
     .vision-toggle:checked ~ .vision-toggle-label{display:none;}
   </style>
   <input type="checkbox" id="visionCard" class="vision-toggle">
-  <label for="visionCard" class="vision-toggle-label">🌟 박상욱님의 미래비전카드 열어보기</label>
+  <label for="visionCard" class="vision-toggle-label">🌟 박상욱님의 미래비전카드 · 여기를 눌러 열어보세요 👆</label>
   <div class="vision-card-reveal">
     <div class="vision-card-container">
       <div class="vision-card-placeholder">
@@ -1081,12 +1081,9 @@
   <p style="margin-top:6px;font-size:12px;color:rgba(255,255,255,0.28);letter-spacing:1.5px;">그 도착 행성을 향해 이미 항해 중인 박상욱님의 소우주예요.</p>
   <p style="margin-top:14px;font-weight:500;color:rgba(255,255,255,0.82);">박상욱님이 찬란한 고유의 빛을 품고 이 세상에 존재하는 이유예요.</p>
   <p class="closing-sig">소우주컬러맵 · SOCOSMOS COLOR MAP · 2026</p>
-  <p style="margin-top:18px;font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">✨ 소우주 궤도 AS 안내<br><br>
+  <p style="margin-top:18px;font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;">✨ 소우주 궤도 AS 안내<br>
 소우주 리포트를 읽으며 조금 더 깊이 이해하고 싶은 내용이 있다면 편하게 남겨주세요.<br>
-한 번의 답변 안에 온전한 방향성을 담아드릴 수 있도록,<br>
-가장 짚고 넘어가고 싶은 <strong style="color:rgba(255,255,255,0.55);">핵심 질문</strong>을 집중해서 적어주시는 것이 좋습니다.<br><br>
-· 이용 기간: 리포트 수령 후 7일 이내 가능 (최대 1회 답변)<br>
-· 여러 질문을 복합적으로 묶어서 남겨주실 경우, 가장 상단에 적어주신 핵심 질문 1개를 기준으로 답변이 진행됩니다.🌿</p>
+가장 짚고 넘어가고 싶은 한 가지를 적어주시면, 그 결을 따라 함께 풀어드려요. 🌿</p>
 </div>
 
 <!-- ════ 비밀 편지 (맨 마지막 — 클로징 이후) ════
